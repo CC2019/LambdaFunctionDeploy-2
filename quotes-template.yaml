@@ -13,3 +13,12 @@ Resources:
       Timeout: 7
       Role: >-
         arn:aws:iam::434531902054:role/service-role/Assignment3-LF2-role-xyuzzwc3
+  libs:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      LayerName: elasticsearch-lib
+      Content:
+        S3Bucket: layer.lambda.aws
+        S3Key: elasticsearch.zip
+      CompatibleRuntimes:
+        - python3.8
