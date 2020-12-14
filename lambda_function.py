@@ -3,6 +3,7 @@ import boto3
 from requests_aws4auth import AWS4Auth
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 
+
 # s3://layer.lambda.aws/elasticsearch.zip
 
 es_endpoint = 'search-photos-tmekumoyygkksr5uqzxqoqwavi.us-east-1.es.amazonaws.com'  # without 'https://'
