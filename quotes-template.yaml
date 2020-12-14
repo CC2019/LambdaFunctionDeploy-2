@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'  
+Transform: 'AWS::Serverless-2016-10-31'  
+Description: Lambda - Quotes  
+Resources:  
+  developerlambdaquotes:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: Assignment3-LF2-1
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      Description: Lambda - Quotes
+      MemorySize: 128
+      Timeout: 7
+      Role: >-
+        arn:aws:iam::434531902054:role/service-role/Assignment3-LF2-role-xyuzzwc3
