@@ -2,28 +2,30 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'  
 Description: Lambda - Quotes  
 
-Parameters:
-  BucketNamePhotos:
-    Type: String
-    Default: 'bucket-for-photos-1'
-    AllowedPattern: "[A-Za-z0-9-]+"
-  FunctionNameLF2:
-    Type: String
-    Default: Assignment3-LF2-test  # Don't change this
-    AllowedValues: 
-      - Assignment3-LF2-test
-    AllowedPattern: "[A-Za-z0-9-]+"
+# Parameters:
+#   BucketNamePhotos:
+#     Type: String
+#     Default: 'smartalbum.album-test'
+#     AllowedPattern: "[A-Za-z0-9-]+"
+#   FunctionNameLF1:
+#     Type: String
+#     Default: Assignment3-LF1-test  # Don't change this
+#     AllowedValues: 
+#       - Assignment3-LF1-test
+#     AllowedPattern: "[A-Za-z0-9-]+"
 
 Resources:  
   developerlambdaquotes:
     Type: 'AWS::Serverless::Function'
     Properties:
-      FunctionName: !Ref FunctionNameLF2
+      FunctionName: Assignment3-LF2-test
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
       Description: Lambda - Quotes
       MemorySize: 128
       Timeout: 7
+      Layers:
+        - !Ref libs
       Role: >-
         arn:aws:iam::434531902054:role/service-role/Assignment3-LF2-role-xyuzzwc3
   libs:
