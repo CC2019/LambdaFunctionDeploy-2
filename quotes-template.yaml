@@ -9,7 +9,7 @@ Description: Lambda - Quotes
 #     AllowedPattern: "[A-Za-z0-9-]+"
 #   FunctionNameLF1:
 #     Type: String
-#     Default: Assignment3-LF1-test  # Don't change this
+#     Default: Assignment3-LF2-test  # Don't change this
 #     AllowedValues: 
 #       - Assignment3-LF1-test
 #     AllowedPattern: "[A-Za-z0-9-]+"
@@ -37,3 +37,27 @@ Resources:
         S3Key: elasticsearch.zip
       CompatibleRuntimes:
         - python3.8
+  ###### APIGateway
+  ApiGateway:
+    DependsOn:
+      - developerlambdaquotes
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      BodyS3Location:
+        Bucket: smartalbum.lambda
+        Key: ApiGateway.yaml
+      Name: myApi
+      Parameters:
+        endpointConfigurationTypes: REGIONAL
+  ApiGateWayDeployment:
+    Type: 'AWS::ApiGateway::Deployment'
+    Properties:
+      RestApiId: !Ref ApiGateway
+      Description: My deployment
+      StageName: DummyStage
+  ApiGatewayConfigLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref developerlambdaquotes
+      Principal: apigateway.amazonaws.com
