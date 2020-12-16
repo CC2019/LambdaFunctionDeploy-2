@@ -6,7 +6,7 @@ from elasticsearch import Elasticsearch, RequestsHttpConnection
 
 # s3://layer.lambda.aws/elasticsearch.zip
 
-es_endpoint = 'search-photos-tmekumoyygkksr5uqzxqoqwavi.us-east-1.es.amazonaws.com'  # without 'https://'
+es_endpoint = 'search-test-domain-1-aljnptxmbdngifh7icm3gnd7sq.us-east-1.es.amazonaws.com'  # without 'https://'
 lex_bot_name = 'AlbumBot'
 lex_bot_alias = 'smart_album_bot'
 
