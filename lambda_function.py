@@ -31,7 +31,7 @@ def search_photos(labels, max_size):
     format_labels = []
     for label in labels:
         format_labels.append({'term': {'labels': label}})
-    response = es.search(index='photos', doc_type="photo", body={"query" : { "bool": { "must" : format_labels } }, "size": max_size })
+    response = es.search(index='photos', doc_type="photo", body={"query" : { "bool": { "should" : format_labels } }, "size": max_size })
     photo_infos = []
     for hit in response['hits']['hits']:
         photo_info = hit['_source']
