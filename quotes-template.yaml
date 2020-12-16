@@ -26,8 +26,7 @@ Resources:
       Timeout: 7
       Layers:
         - !Ref libs
-      Role: >-
-        arn:aws:iam::434531902054:role/service-role/Assignment3-LF2-role-xyuzzwc3
+      Role: !Sub arn:aws:iam::${AWS::AccountId}:role/administrator-test
   libs:
     Type: AWS::Lambda::LayerVersion
     Properties:
