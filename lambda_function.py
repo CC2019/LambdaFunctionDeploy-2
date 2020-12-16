@@ -21,7 +21,11 @@ es = Elasticsearch(
 lex = boto3.client('lex-runtime')
 
 
+def try_create_index():
+    es.indices.create(index='photos', ignore=400)
+
 def search_photos(labels, max_size):
+    try_create_index();
     if not labels:
         return []
     format_labels = []
