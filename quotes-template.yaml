@@ -50,7 +50,7 @@ Resources:
       # BodyS3Location:
       #   Bucket: smartalbum.lambda
       #   Key: ApiGateway.yaml
-      Name: myApi
+      Name: SmartAlbunAPIGateway_test
       Parameters:
         endpointConfigurationTypes: REGIONAL
   ApiGateWayDeployment:
