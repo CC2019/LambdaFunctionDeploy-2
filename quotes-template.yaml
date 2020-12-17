@@ -42,9 +42,14 @@ Resources:
       - developerlambdaquotes
     Type: AWS::ApiGateway::RestApi
     Properties:
-      BodyS3Location:
-        Bucket: smartalbum.lambda
-        Key: ApiGateway.yaml
+      Body: 
+        'Fn::Transform':
+          Name: 'AWS::Include'
+          Parameters: 
+            Location: s3://smartalbum.lambda/ApiGateway.yaml
+      # BodyS3Location:
+      #   Bucket: smartalbum.lambda
+      #   Key: ApiGateway.yaml
       Name: myApi
       Parameters:
         endpointConfigurationTypes: REGIONAL
