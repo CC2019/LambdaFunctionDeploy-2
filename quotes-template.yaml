@@ -65,3 +65,8 @@ Resources:
       Action: lambda:InvokeFunction
       FunctionName: !Ref developerlambdaquotes
       Principal: apigateway.amazonaws.com
+
+Outputs:
+  ProdDataEndpoint:
+    Description: "API stage endpoint"
+    Value: !Sub "https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/DummyStage"
